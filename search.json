@@ -1,0 +1,122 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Problems in Computing",
+    "section": "",
+    "text": "Preface\nA collection of all problems and solutions of the Fundamentals of Computing and Programming course.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "ps1.html",
+    "href": "ps1.html",
+    "title": "1  Problem Set 1",
+    "section": "",
+    "text": "1.1 Mirror Circles",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#mirror-circles",
+    "href": "ps1.html#mirror-circles",
+    "title": "1  Problem Set 1",
+    "section": "",
+    "text": "Problem 1.1\n\n\n#include &lt;sketch.h&gt;\n\nvoid bottom_circle(float bx, float by, float r)\n{\n    float cx = bx;\n    float cy = by + r;\n\n    draw_circle(cx, cy, r);\n}\n\nvoid bottom_circle_inverse(float bx, float by, float r)\n{\n    float cx = bx;\n    float cy = by - r;\n\n    draw_circle(cx, cy, r);\n}\n\nvoid draw_candle_light(float x, float y, float r)\n{\n    bottom_circle(x, y, r / 3);\n    bottom_circle(x, y, 2 * r / 3);\n    bottom_circle(x, y, r);\n}\n\nvoid draw_candle_light_inverse(float x, float y, float r)\n{\n    bottom_circle_inverse(x, y, r / 3);\n    bottom_circle_inverse(x, y, 2 * r / 3);\n    bottom_circle_inverse(x, y, r);\n}\n\nint main()\n{\n    draw_candle_light(-100, 0, 100);\n    draw_candle_light(100, 0, 100);\n    draw_candle_light_inverse(-100, 0, 100);\n    draw_candle_light_inverse(100, 0, 100);\n\n    save_sketch(\"p1_1.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#row-of-circles",
+    "href": "ps1.html#row-of-circles",
+    "title": "1  Problem Set 1",
+    "section": "1.2 Row of Circles",
+    "text": "1.2 Row of Circles\n\n\n\nProblem 1.2\n\n\n#include &lt;sketch.h&gt;\n\nint main()\n{\n    for(int x = -200; x &lt;= 200; x += 100)\n    {\n        draw_circle(x, 0, 50);\n    }\n\n    save_sketch(\"P1_2.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#row-of-concentric-circles",
+    "href": "ps1.html#row-of-concentric-circles",
+    "title": "1  Problem Set 1",
+    "section": "1.3 Row of Concentric Circles",
+    "text": "1.3 Row of Concentric Circles\n\n\n\nProblem 1.3\n\n\n#include &lt;sketch.h&gt;\n\nvoid concentric_circles(float x, float y, float r, float n)\n{\n    for (int i = 1; i &lt;= n; i++)\n    {\n        draw_circle(x, y, i * r / n);\n    }\n}\n\nint main()\n{\n    for(int x = -200, i = 1; x &lt;= 200; x += 100, i++)\n    {\n        concentric_circles(x, 0, 50, i);\n    }\n\n    save_sketch(\"P1_3.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#growing-circles",
+    "href": "ps1.html#growing-circles",
+    "title": "1  Problem Set 1",
+    "section": "1.4 Growing Circles",
+    "text": "1.4 Growing Circles\n\n\n\nProblem 1.4\n\n\n#include &lt;sketch.h&gt;\n#include &lt;math.h&gt;\n\nvoid bottom_circle(float bx, float by, float r)\n{\n    float cx = bx;\n    float cy = by + r;\n\n    draw_circle(cx, cy, r);\n}\n\nint main()\n{\n    int r = 30;\n    float dr = r/2;\n    for(float x = r - 300; x &lt;= 300 - r; x += sqrt(pow(2*r + dr, 2) - pow(dr, 2)), r += dr)\n    {\n        bottom_circle(x, 0, r);\n    }\n\n    save_sketch(\"P1_4.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#growing-candle-lights",
+    "href": "ps1.html#growing-candle-lights",
+    "title": "1  Problem Set 1",
+    "section": "1.5 Growing Candle Lights",
+    "text": "1.5 Growing Candle Lights\n\n\n\nProblem 1.5\n\n\n#include &lt;sketch.h&gt;\n#include &lt;math.h&gt;\n\nvoid bottom_circle(float bx, float by, float r)\n{\n    float cx = bx;\n    float cy = by + r;\n\n    draw_circle(cx, cy, r);\n}\n\nvoid draw_candle_light(float x, float y, float r)\n{\n    bottom_circle(x, y, r / 3);\n    bottom_circle(x, y, 2 * r / 3);\n    bottom_circle(x, y, r);\n}\n\nint main()\n{\n    int r = 30;\n    float dr = r/2;\n    for(float x = r - 300; x &lt;= 300 - r; x += sqrt(pow(2*r + dr, 2) - pow(dr, 2)), r += dr)\n    {\n        draw_candle_light(x, 0, r);\n    }\n\n    save_sketch(\"P1_5.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#grid-of-candle-lights",
+    "href": "ps1.html#grid-of-candle-lights",
+    "title": "1  Problem Set 1",
+    "section": "1.6 Grid of Candle Lights",
+    "text": "1.6 Grid of Candle Lights\n\n\n\nProblem 1.6\n\n\n#include &lt;sketch.h&gt;\n\nvoid bottom_circle(float bx, float by, float r)\n{\n    float cx = bx;\n    float cy = by + r;\n\n    draw_circle(cx, cy, r);\n}\n\nvoid draw_candle_light(float x, float y, float r)\n{\n    bottom_circle(x, y, r / 3);\n    bottom_circle(x, y, 2 * r / 3);\n    bottom_circle(x, y, r);\n}\n\nvoid make_grid(int n)\n{\n    float dx = 600/n;\n    float dy = dx;\n\n    float x0 = -300+dx/2;\n    float y0 = -300+dy/2;\n\n    for (float x=x0; x&lt;300; x+=dx)\n    {\n        for (float y=y0; y&lt;300; y+=dy)\n        {\n            draw_candle_light(x, y - dx/2, dx / 2);\n        }\n    }\n}\n\nint main() {\n    make_grid(6);\n    save_sketch(\"P1_6.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#grid-of-concentric-circles",
+    "href": "ps1.html#grid-of-concentric-circles",
+    "title": "1  Problem Set 1",
+    "section": "1.7 Grid of Concentric Circles",
+    "text": "1.7 Grid of Concentric Circles\n\n\n\nProblem 1.7\n\n\n#include &lt;sketch.h&gt;\n\nfloat max(float a, float b) {\n    return a&gt;b? a: b;\n}\n\nvoid concentric_circles(float x, float y, float radius, int n)\n{\n    float r = radius/n;\n\n    for (int i=1; i&lt;=n; i++) {\n        draw_circle(x, y, i*r);\n    }\n}\n\nvoid draw_shape(float x, float y, float size, int i, int j, int n) {\n    concentric_circles(x, y, size/2, 1+max(i, j));\n}\n\nvoid make_grid(int n)\n{\n    float dx = 600/n;\n    float dy = dx;\n\n    float x0 = -300+dx/2;\n    float y0 = 300-dy/2;\n\n    for (int i=0; i&lt;n; i++)\n    {\n        for (int j=0; j&lt;n; j++)\n        {\n            float x = x0+i*dx;\n            float y = y0-j*dy;\n            draw_shape(x, y, dx, i, j, n);\n        }\n    }\n}\n\nint main() {\n    make_grid(6);\n    save_sketch(\"P1_7.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#the-complex-grid",
+    "href": "ps1.html#the-complex-grid",
+    "title": "1  Problem Set 1",
+    "section": "1.8 The Complex Grid",
+    "text": "1.8 The Complex Grid\n\n\n\nProblem 1.8\n\n\n#include &lt;sketch.h&gt;\n#include &lt;math.h&gt;\n\nfloat min(float a, float b) {\n    return a&lt;b? a: b;\n}\n\nvoid concentric_circles(float x, float y, float radius, int n)\n{\n    float r = radius/n;\n\n    for (int i=1; i&lt;=n; i++) {\n        draw_circle(x, y, i*r);\n    }\n}\n\nvoid draw_shape(float x, float y, float size, int i, int j, int n) {\n    concentric_circles(x, y, size/2, 1 + min(abs(5-i), abs(5-j)));\n}\n\nvoid make_grid1(int n)\n{\n    float dx = 600/n;\n    float dy = dx;\n\n    float x0 = -300+dx/2;\n    float y0 = 300-dy/2;\n\n    for (int i=0; i&lt;n; i++)\n    {\n        for (int j=0; j&lt;n; j++)\n        {\n            float x = x0+i*dx;\n            float y = y0-j*dy;\n            draw_shape(x, y, dx, i, j, n);\n        }\n    }\n}\n\nint main() {\n    make_grid1(11);\n    save_sketch(\"P1_8.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#packed-circles",
+    "href": "ps1.html#packed-circles",
+    "title": "1  Problem Set 1",
+    "section": "1.9 Packed circles",
+    "text": "1.9 Packed circles\n\n\n\nProblem 1.9\n\n\n#include &lt;sketch.h&gt;\n#include &lt;math.h&gt;\n\nint main()\n{\n    draw_circle(0, 0, 150);\n    draw_circle(0, 0, 50);\n\n    for(float a = 0; a &lt;= 2*M_PI; a += M_PI/3)\n    {\n        draw_circle(100*cos(a), 100*sin(a), 50);\n    }\n\n    save_sketch(\"P1_9.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  },
+  {
+    "objectID": "ps1.html#packed-candle-lights",
+    "href": "ps1.html#packed-candle-lights",
+    "title": "1  Problem Set 1",
+    "section": "1.10 Packed Candle Lights",
+    "text": "1.10 Packed Candle Lights\n\n\n\nProblem 1.10\n\n\n#include &lt;sketch.h&gt;\n#include &lt;math.h&gt;\n\nvoid bottom_circle(float bx, float by, float r)\n{\n    float cx = bx;\n    float cy = by + r;\n\n    draw_circle(cx, cy, r);\n}\n\nvoid draw_candle_light(float x, float y, float r)\n{\n    bottom_circle(x, y, r / 3);\n    bottom_circle(x, y, 2 * r / 3);\n    bottom_circle(x, y, r);\n}\n\nvoid rotated_candle_light(float x, float y, float r, float a)\n{\n    draw_circle(x + 2 * (r / 3) * cos(a), y + 2 * (r / 3) * sin(a), r / 3);\n    draw_circle(x + (r / 3) * cos(a), y + (r / 3) * sin(a), 2 * r / 3);\n    draw_circle(x, y, r);\n}\n\nint main()\n{\n    draw_circle(0, 0, 150);\n    draw_circle(0, 0, 50);\n    draw_circle(0, 0, 100/3);\n    draw_circle(0, 0, 50/3);\n\n    for(float a = 0; a &lt;= 2*M_PI; a += M_PI/3)\n    {\n        rotated_candle_light(100*cos(a), 100*sin(a), 50, M_PI + a);\n    }\n\n    save_sketch(\"P1_10.svg\");\n}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Problem Set 1</span>"
+    ]
+  }
+]
