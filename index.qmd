@@ -1,0 +1,3 @@
+# Preface {.unnumbered}
+
+A collection of all problems and solutions of the Fundamentals of Computing and Programming course.

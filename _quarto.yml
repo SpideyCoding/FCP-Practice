@@ -1,0 +1,21 @@
+project:
+  type: book
+
+book:
+  title: "Problems in Computing"
+  author: "Souparna"
+  date: "23/9/2024"
+  chapters:
+    - index.qmd
+    - ps1.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+#  pdf:
+#    documentclass: scrreprt
+
+
+
